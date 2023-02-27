@@ -14,15 +14,13 @@ How to run the model:
 If you use the code, please cite the following paper:
 
 <pre>  
-@article{abs-2302,
+@article{abs-2302.12721,
   author    = {David Campos and Miao Zhang and Bin Yang and Tung Kieu and Chenjuan Guo 
                and Christian S. Jensen},
   title     = {{LightTS: Lightweight Time Series Classification with Adaptive Ensemble}},
   journal   = {CoRR},
-  volume    = {abs-2302},
+  volume    = {abs/2302.12721},
   year      = {2023},
-  url       = {abs-2302},
-  eprinttype = {arXiv},
-  eprint    = {abs-2302},
+  url       = {https://doi.org/10.48550/arXiv.2302.12721},
 }
 </pre> 
