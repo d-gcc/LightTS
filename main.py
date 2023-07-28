@@ -21,7 +21,7 @@ if __name__ == '__main__':
     parser.add_argument('--val_size', type=float, default=0.2)
     parser.add_argument('--lr', type=float, default=0.01)
     parser.add_argument('--lr_w', type=float, default=0.01)
-    parser.add_argument('--epochs', type=int, default=5)
+    parser.add_argument('--epochs', type=int, default=200)
     parser.add_argument('--init_seed', type=int, default=0)
     parser.add_argument('--device', type=int, default=-1)
     parser.add_argument('--pid', type=int, default=0)

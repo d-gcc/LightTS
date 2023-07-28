@@ -1,0 +1,12 @@
+name: lightts
+channels:
+  - conda-forge
+dependencies:
+  - python==3.9.7
+  - pip
+  - pip:
+    - torch==1.9.1
+    - tslearn
+    - pymssql
+    - sktime
+    - h5py

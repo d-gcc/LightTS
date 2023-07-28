@@ -333,9 +333,10 @@ def evaluate(test_loader, model, config, epochs=0, training_time=0):
         else:
             type_q = str(config.layer1) + "(" + str(config.bit1) + ")-" + str(config.layer2) + "(" + str(config.bit2) + ")-" + str(config.layer2) + "(" + str(config.bit3) + ")"
 
-            insert_SQL(config.teacher_type, config.pid, config.dataset, "Gumble", config.gumbel, type_q, config.teachers,
-                       config.evaluation, accuracy, "Top 5", accuracy_5, "Epochs", epochs, "Training time", 
-                       training_time,"Test time",testing_time)
+            #insert_SQL(config.teacher_type, config.pid, config.dataset, "Gumble", config.gumbel, type_q, config.teachers,
+            #           config.evaluation, accuracy, "Top 5", accuracy_5, "Epochs", epochs, "Training time", 
+            #           training_time,"Test time",testing_time)
+            print("Epoch: " + str(epochs) + ", Accuracy: " + str(accuracy))
             return accuracy
 
 def evaluate_ensemble(test_loader, config):
@@ -403,9 +404,9 @@ def evaluate_ensemble(test_loader, config):
                 accuracy_5 = -1
                 
             type_q = "Full precision"
-            insert_SQL(config.teacher_type, config.pid, config.dataset, "Teacher", teacher, type_q, 32, config.evaluation,
-                       accuracy, "Top 5", accuracy_5, "Metric 2", 0, "Metric 3", 0, "Metric 4", 0) 
-
+            #insert_SQL(config.teacher_type, config.pid, config.dataset, "Teacher", teacher, type_q, 32, config.evaluation,
+            #           accuracy, "Top 5", accuracy_5, "Metric 2", 0, "Metric 3", 0, "Metric 4", 0) 
+            print("Teacher accuracy: " + str(accuracy))
             ensemble_result.append(preds_tensor)
         
     sum_probabilities = torch.stack(ensemble_result).sum(dim=0)
@@ -423,7 +424,7 @@ def evaluate_ensemble(test_loader, config):
         accuracy_5 = -1
         
     type_q = "Full precision"
-    insert_SQL(config.teacher_type, config.pid, config.dataset, "Teacher Ensemble", 0, type_q, 32, config.evaluation,
-               accuracy, "Top 5", accuracy_5, "Metric 2", 0, "Metric 3", 0, "Metric 4", 0) 
-
+    #insert_SQL(config.teacher_type, config.pid, config.dataset, "Teacher Ensemble", 0, type_q, 32, config.evaluation,
+    #           accuracy, "Top 5", accuracy_5, "Metric 2", 0, "Metric 3", 0, "Metric 4", 0) 
+    print("Ensemble accuracy: " + str(accuracy))
     return accuracy
